@@ -10,7 +10,7 @@
 
 body {
 	color: var(--black-color);
-    background-color: var(--white-color);	
+    background-color: var(--white-color);		
 }
 header{
 	margin-bottom: 3rem;
