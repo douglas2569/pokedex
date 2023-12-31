@@ -1,0 +1,31 @@
+:root{
+	--white-color: #fefefe;
+	--light-gray-color: #cecece;
+	--black-color: #0e0e0e;
+	--title-color: #ff4567;	
+	
+	--normal-color: #a6a877a1;
+	--grass-color: #76c850a1;
+	--fire-color: #ee7f30a1;
+	--water-color: #678feea1;
+	--electric-color: #f7cf2ea1;
+	--ice-color: #98d5d7a1;
+	--ground-color: #dfbf69a1;
+	--flying-color: #a98ff0a1;
+	--poison-color: #a040a0a1;
+	--fighting-color: #bf3029a1;
+	--psychic-color: #f65687a1;
+	--dark-color: #725847a1;
+	--rock-color: #b8a137a1;
+	--bug-color: #a8b720a1;
+	--ghost-color: #6e5896a1;
+	--steel-color: #b9b7cfa1;
+	--dragon-color: #6f38f6a1;
+	--fairy-color: #f9aec7a1;	
+	
+	
+	--input-font-size: 1.3rem;
+	--button-font-size: 1rem;
+	
+	--padding-external-sides: 1rem;
+}
