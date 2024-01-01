@@ -13,9 +13,11 @@ body {
 	color: var(--black-color);
     background-color: var(--white-color);		
 }
+
 header{
 	margin-bottom: 4rem;
 }
+
 header > .content > h1{
 	text-align: center;
 	color: var(--title-color);
@@ -63,8 +65,7 @@ header > .content > h1{
     background-color: var(--white-color);
 }
 
-footer{	
-	height: 200px;
+footer{		
 	background-color: var(--title-color) ;	
 }
 
@@ -76,6 +77,7 @@ footer .content{
 }
 footer p{
 	text-align: center;
+	/* font-size: .75rem; */
 }
 
 footer a:hover{
@@ -85,6 +87,7 @@ footer a{
 	color: var(--black-color);
 	font-weight: 600;
 	text-decoration: underline;
+	
 
 }
 

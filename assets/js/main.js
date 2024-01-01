@@ -1,4 +1,6 @@
-import { config } from "../../config.js"
+import Helper from "./helper.js"
+import { pokeApi } from "./poke-api.js"
+
 const ulPokemons = document.querySelector('.pokemons')
 const loadMoreButton = document.getElementById('loadMoreButton')
 const mainContainer = document.querySelector('main section.content')
@@ -9,69 +11,12 @@ const maxRecords = 151
 const limit = 9
 let offsetGlobal = 0;
 
-function convertPokemonToLi(pokemon) {    
-
-    const li = document.createElement('li')
-    li.setAttribute('class',`pokemon ${pokemon.type}`)     
-    
-    const img = document.createElement('img')
-    img.setAttribute('src',`${pokemon.photo}`)
-    img.setAttribute('alt',`${pokemon.name}`)
-    
-    const span1 = document.createElement('span')
-    span1.setAttribute('class',`number`)
-    span1.appendChild(document.createTextNode(`#${pokemon.number}`))
-
-    const span2 = document.createElement('span')
-    span2.setAttribute('class',`name`)
-    span2.appendChild(document.createTextNode(`#${pokemon.name}`))
-
-    const div = document.createElement('div')
-    div.setAttribute('class',`detail`)
-    
-    const ul = document.createElement('ul')
-    ul.setAttribute('class',`types`)    
-    pokemon.types.forEach(type => {
-        const li = document.createElement('li')
-        li.setAttribute('class',`type ${type}`)        
-        li.appendChild(document.createTextNode(`${type}`))
-        ul.appendChild(li)
-    });
-
-    li.appendChild(img)
-    li.appendChild(span1)
-    li.appendChild(span2)
-
-    div.appendChild(ul)
-    li.appendChild(div)
-
-    return li
-}
-
-function setLoading(mainContainer) {   
-    
-    const imgContainer = document.createElement('div');    
-    imgContainer.setAttribute('class', 'loading')
-    
-    const img = document.createElement('img');    
-    img.setAttribute('src', `${config.host}/pokedex/assets/images/gifs/01-loading.gif`)
-    
-    imgContainer.appendChild(img)    
-    mainContainer.insertAdjacentElement('afterbegin', imgContainer)
-
-    return imgContainer
-}
-
-function removeLoading(imgContainer, mainContainer) {
-    mainContainer.removeChild(imgContainer)
-}
-
 function loadPokemonItensHome(offset, limit) {
-    const imgLoading = setLoading(mainContainer)
+    const imgLoading = Helper.setLoading(mainContainer)
 
     pokeApi.getPokemons(offset, maxRecords).then((pokemons = []) => {
-        removeLoading(imgLoading, mainContainer)
-        pokemonList = pokemons.map(convertPokemonToLi)            
+        Helper.removeLoading(imgLoading, mainContainer)
+        pokemonList = pokemons.map(Helper.convertPokemonToLi)                 
         addPokemonItens(ulPokemons, pokemonList, offset, limit)        
     })
 }
