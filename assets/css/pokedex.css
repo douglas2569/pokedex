@@ -69,6 +69,14 @@
 .fairy {
     background-color: var(--fairy-color);
 }
+.loading{
+    display: flex;
+    justify-content: center;
+    margin-top: -6rem;
+}
+.loading img{
+   width: 300px;
+}
 
 .pokemon {
     display: flex;
@@ -76,6 +84,14 @@
     padding: var(--padding-external-sides);
     border-radius: 1rem;   
     margin-bottom: 5rem;     
+}
+
+.No-Pokemon-found{
+    display: none;
+    text-align: center;
+    font-size: 1.3rem;
+    color: var(--black-color);
+    margin-bottom: 3rem;
 }
 .pokemon img {
     max-width: 100%;
