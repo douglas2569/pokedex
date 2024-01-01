@@ -42,7 +42,7 @@ header > .content > h1{
 }
 
 .search-form button svg{
-	fill: var(--white-color);	
+	fill: var(--black-color);	
 
 }
 
@@ -79,11 +79,12 @@ footer p{
 }
 
 footer a:hover{
-	text-decoration: underline;
+	color: var(--white-color);
 }
 footer a{
-	color: var(--white-color);
+	color: var(--black-color);
 	font-weight: 600;
+	text-decoration: underline;
 
 }
 

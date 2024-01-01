@@ -1,3 +1,4 @@
+import { config } from "../../config.js"
 const ulPokemons = document.querySelector('.pokemons')
 const loadMoreButton = document.getElementById('loadMoreButton')
 const mainContainer = document.querySelector('main section.content')
@@ -52,8 +53,8 @@ function setLoading(mainContainer) {
     const imgContainer = document.createElement('div');    
     imgContainer.setAttribute('class', 'loading')
     
-    const img = document.createElement('img');
-    img.setAttribute('src', 'http://localhost/pokedex/assets/images/gifs/01-loading.gif')
+    const img = document.createElement('img');    
+    img.setAttribute('src', `${config.host}/pokedex/assets/images/gifs/01-loading.gif`)
     
     imgContainer.appendChild(img)    
     mainContainer.insertAdjacentElement('afterbegin', imgContainer)
@@ -94,7 +95,7 @@ function addPokemonItens(ulPokemons, pokemonList, offset, limit){
 function searchItem(){ 
     const searchItem = document.querySelector('.search');
 
-        if(searchItem == null){
+        if(searchItem == null){            
             return;
         }
 
@@ -102,19 +103,26 @@ function searchItem(){
             let input = document.querySelector('.search').value
             input=input.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");            
             let pokemonArray = pokemonList.filter((pokemon)=> pokemon.querySelector('.types').outerText.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").includes(input))  
-            ulPokemons.innerHTML = '' 
+            ulPokemons.innerHTML = ''            
 
-            if(pokemonArray.length <= 0){                
-                document.querySelector('.No-Pokemon-found').style.display = 'block'
-            }else{                
+            if (searchItem.value) {                
+                if(pokemonArray.length <= 0){                
+                    document.querySelector('.No-Pokemon-found').style.display = 'block'
+                }else{                
+                    document.querySelector('.No-Pokemon-found').style.display = 'none'
+                    addPokemonItens(ulPokemons, pokemonArray, 0, 151)
+                }
+            }else{
+                loadPokemonItensHome(0, limit)
+                const pagination = document.querySelector('.pagination')
+                pagination.appendChild(loadMoreButton)
                 document.querySelector('.No-Pokemon-found').style.display = 'none'
-                addPokemonItens(ulPokemons, pokemonArray, 0, 151)
             }
+
         });      
 }
 
-loadMoreButton.addEventListener('click', () => {   
-    
+loadMoreButton.addEventListener('click', () => { 
     addPokemonItens(ulPokemons, pokemonList, offsetGlobal, limit)    
 })
 
