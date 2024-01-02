@@ -15,6 +15,8 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
 
     pokemon.photo = pokeDetail.sprites.other.dream_world.front_default
 
+    pokemon.description = `${pokemon.name} is a ${(pokemon.types.length > 1)?`dual-type ${(types.toString()).replace(',','/')}`:`single-type ${(types.toString())}`} Pokémon and is recognized as the ${pokemon.number}° Pokémon in the National Pokédex.`
+
     return pokemon
 }
 

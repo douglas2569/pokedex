@@ -7,9 +7,9 @@ function loadPokemonItensHome() {
     const pokemonUrl = {
         url: `https://pokeapi.co/api/v2/pokemon/${Helper.urlIdExtractor(window.location.href)}`
     }
-    
+
     pokeApi.getPokemonDetail(pokemonUrl).then((pokemon)=>{ 
-        pokemon = Helper.convertPokemonToLi(pokemon)
+        pokemon = Helper.convertPokemonToLiDetail(pokemon)
         addPokemonItem(mainContainer, pokemon)  
         Helper.removeLoading(imgLoading, mainContainer)
     })    

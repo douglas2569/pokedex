@@ -1,2 +1,6 @@
 @import url('./global.css');
 
+.pokemon img {   
+    margin-top: 0;
+  }
+
