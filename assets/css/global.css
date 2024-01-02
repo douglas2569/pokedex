@@ -228,6 +228,7 @@ footer a{
 		align-self: center;
 		justify-self: center;  
     }
+    
 	header, main, footer{
 		display: grid;
 		grid-template-columns: 1fr;

@@ -64,5 +64,13 @@ main .content header a img{
 @media screen and (min-width: 576px) {
   .content {
     max-width: 400px; 
+    align-self: center;
+    justify-self: center;
+  }
+
+  header, main, footer{
+    display: grid;
+    grid-template-columns: 1fr;
   }
 }
+
