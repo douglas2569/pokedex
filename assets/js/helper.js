@@ -37,10 +37,7 @@ export default class Helper{
         const span2 = document.createElement('span')
         span2.setAttribute('class',`name`)
         span2.appendChild(document.createTextNode(`${pokemon.name}`))
-
-        const div = document.createElement('div')
-        div.setAttribute('class',`detail`)
-        
+               
         const ul = document.createElement('ul')
         ul.setAttribute('class',`types`)    
         pokemon.types.forEach(type => {
@@ -51,13 +48,13 @@ export default class Helper{
         });
 
         return [
-            img, span1, span2, div, ul
+            img, span1, span2, ul
         ]
     }
 
     static convertPokemonToLi(pokemon) {  
 
-        const [img, span1, span2, div, ul] = Helper.convertPokemonToLiBase(pokemon)
+        const [img, span1, span2, ul] = Helper.convertPokemonToLiBase(pokemon)
        
         const a = document.createElement('a')
         a.setAttribute('href',`${config.host}/pokedex/detail.html?id=${pokemon.number}`)      
@@ -67,34 +64,47 @@ export default class Helper{
             
         li.appendChild(img)
         li.appendChild(span1)
-        li.appendChild(span2)           
-    
-        div.appendChild(ul)
-        li.appendChild(div)
+        li.appendChild(span2) 
+        
+        li.appendChild(ul)
         a.appendChild(li)
         return a        
        
     }
 
     static convertPokemonToLiDetail(pokemon) {  
-        const [img, span1, span2, div, ul] = Helper.convertPokemonToLiBase(pokemon)
-                               
-        const container = document.createElement('div')
-        container.setAttribute('class',`pokemon ${pokemon.type}`)  
+        const [img, span1, span2, ul] = Helper.convertPokemonToLiBase(pokemon)
+        
+        const header = document.createElement('header')
+        header.setAttribute('class',`pokemon ${pokemon.type}`) 
+
+        const arrowBack = document.createElement('img')
+        arrowBack.setAttribute('src',`${config.host}/pokedex/assets/images/icons/arrow_back_edit.png`)
+
+        const a = document.createElement('a')
+        a.setAttribute('href',`${config.host}/pokedex/`) 
+        a.appendChild(arrowBack)
+
+        const body = document.createElement('div')
+        body.setAttribute('class',`pokemon`) 
 
         const p = document.createElement('p')
         p.setAttribute('class',`description`)
         p.appendChild(document.createTextNode(`${pokemon.description}`))
+        
+        const title = document.createElement('div')
+        title.setAttribute('class',`title`)
+        
+        header.appendChild(a)
+        header.appendChild(img)
+        body.appendChild(span1)
+        title.appendChild(span2)
+        title.appendChild(ul)        
+        body.appendChild(title)       
+        body.appendChild(p)       
     
-        container.appendChild(img)
-        container.appendChild(span1)
-        container.appendChild(span2)
-        container.appendChild(p)
     
-        div.appendChild(ul)
-        container.appendChild(div)
-    
-        return container
+        return [header, body]
        
     }
 }

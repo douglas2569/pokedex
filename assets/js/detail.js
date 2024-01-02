@@ -9,14 +9,16 @@ function loadPokemonItensHome() {
     }
 
     pokeApi.getPokemonDetail(pokemonUrl).then((pokemon)=>{ 
-        pokemon = Helper.convertPokemonToLiDetail(pokemon)
-        addPokemonItem(mainContainer, pokemon)  
+        const elementsPokemon = Helper.convertPokemonToLiDetail(pokemon)
+        addPokemonItem(mainContainer, elementsPokemon)  
         Helper.removeLoading(imgLoading, mainContainer)
     })    
 }
 
-function addPokemonItem(container, pokemon){     
-    container.appendChild(pokemon)
+function addPokemonItem(container, elementsPokemon){  
+    elementsPokemon.forEach(element => {
+        container.appendChild(element)        
+    });   
 }
 
 loadPokemonItensHome()

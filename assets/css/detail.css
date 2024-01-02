@@ -1,6 +1,68 @@
 @import url('./global.css');
+header{
+  margin-bottom: 0;
+}
 
+main section.content{
+  padding: 0;
+}
+
+main .content header a{  
+  border-radius: 50%;
+  width:2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--title-color);
+}
+
+main .content header a img{
+  width:.75rem;
+  height: 1.2rem;  
+  border-radius: 50%;
+}
+.pokemon{
+  margin-bottom: 0;
+  border-radius: .5rem;
+  padding: var(--padding-external-sides);
+  padding-bottom: 3rem;
+}
 .pokemon img {   
     margin-top: 0;
   }
 
+.title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: .5rem;
+}
+.title .types {
+  gap: .5rem;
+}
+.title .types .type {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  color: var(--black-color);
+  padding: .25rem .75rem;
+  margin: .25rem 0;
+  font-size: .80rem;
+  border-radius: 1rem;    
+}
+
+.pokemon p::first-letter {
+  text-transform: capitalize;
+}
+  
+.pokemon p {
+ font-weight: 300;
+}
+
+@media screen and (min-width: 576px) {
+  .content {
+    max-width: 400px; 
+  }
+}

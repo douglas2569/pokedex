@@ -16,6 +16,7 @@ function loadPokemonItensHome(offset, limit) {
 
     pokeApi.getPokemons(offset, maxRecords).then((pokemons = []) => {
         Helper.removeLoading(imgLoading, mainContainer)
+        loadMoreButton.style.display = "block"
         pokemonList = pokemons.map(Helper.convertPokemonToLi)                 
         addPokemonItens(ulPokemons, pokemonList, offset, limit)        
     })

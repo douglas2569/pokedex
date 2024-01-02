@@ -93,13 +93,13 @@ header > .content > h1{
 }
 
 
-.pokemon .detail .types {
+.pokemon .types {
     display: flex;
     flex-direction: row;    
     justify-content: space-around;    
 }
 
-.pokemon .detail .types .type {
+.pokemon .types .type {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -201,23 +201,21 @@ footer .content{
 	flex-direction: column;
 	gap: .5rem;
 }
+
 footer p{
 	text-align: center;
-	/* font-size: .75rem; */
+    font-size: .97rem;
 }
 
 footer a:hover{
 	color: var(--white-color);
 }
+
 footer a{
 	color: var(--black-color);
 	font-weight: 600;
-	text-decoration: underline;
-	
-
+	text-decoration: underline;	
 }
-
-
 
 
 @media screen and (min-width: 992px) {
