@@ -189,7 +189,6 @@ main{
 .loading{
     display: flex;
     justify-content: center;
-    margin-top: -6rem;
 }
 .loading img{
    width: 300px;
