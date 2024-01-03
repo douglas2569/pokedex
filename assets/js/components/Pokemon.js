@@ -3,7 +3,7 @@ import { config } from "../../../config.js";
 export default class Pokemon extends HTMLElement {
     constructor() {
       super();          
-      const shadow = this.attachShadow({ mode: "close" }) 
+      const shadow = this.attachShadow({ mode: "open" }) 
       
       shadow.appendChild(this.build())
       shadow.appendChild(this.styles())
@@ -19,7 +19,7 @@ export default class Pokemon extends HTMLElement {
 
         const span1 = document.createElement('span')
         span1.setAttribute('class',`number`)        
-        span1.appendChild(document.createTextNode(`#${this.getAttribute("name")}`))
+        span1.appendChild(document.createTextNode(`#${this.getAttribute("number")}`))
     
         const span2 = document.createElement('span')
         span2.setAttribute('class',`name`)
@@ -27,12 +27,13 @@ export default class Pokemon extends HTMLElement {
                
         const ul = document.createElement('ul')
         ul.setAttribute('class',`types`)    
-        // this.getAttribute("types").forEach(type => {
-        //     const li = document.createElement('li')
-        //     li.setAttribute('class',`type ${type}`)        
-        //     li.appendChild(document.createTextNode(`${type}`))
-        //     ul.appendChild(li)
-        // });
+        
+        this.getAttribute("types").split(' ').forEach(type => {
+            const li = document.createElement('li')
+            li.setAttribute('class',`type ${type}`)        
+            li.appendChild(document.createTextNode(`${type}`))
+            ul.appendChild(li)
+        });
        
        
         const a = document.createElement('a')
@@ -55,7 +56,10 @@ export default class Pokemon extends HTMLElement {
     styles(){
         const style = document.createElement("style")
 
-        style.textContent = `        
+        style.textContent = ` 
+            a{
+                text-decoration: none;
+            }       
             .pokemon {
                 display: flex;
                 flex-direction: column;    
