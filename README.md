@@ -5,11 +5,11 @@
 
 **Principais Adições:**
 
-    * Pesquisa em Tempo Real
-    * Visualização Individual de Pokémon
-    * Descrições Personalizadas
-    * Layout Aprimorado
-    * Feedback de Carregamento e Resultados Vazios
-    * Classe Helper e Propriedade de Descrição: Uma classe Helper foi introduzida no JavaScript, facilitando o acesso 
+* Pesquisa em Tempo Real
+* Visualização Individual de Pokémon
+* Descrições Personalizadas
+* Layout Aprimorado
+* Feedback de Carregamento e Resultados Vazios
+* Classe Helper e Propriedade de Descrição: Uma classe Helper foi introduzida no JavaScript, facilitando o acesso 
       a métodos úteis em várias partes do sistema. Além disso, a classe modelo Pokemon foi expandida para incluir uma 
       propriedade exclusiva para armazenar descrições personalizadas.
